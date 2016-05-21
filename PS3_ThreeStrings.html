@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title> Javascript is cool </title>
+
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"> <!-- Including bootstrap -->
+
+	<style type="text/css">
+
+		body /*Setting body background color*/
+		{
+			background-color: #FFD27F;
+		}
+
+		#test /*Styling the span with the strings*/
+		{
+		    position: absolute;
+		    top: 30%;
+		    left:30%;
+		    color: black;
+		    padding: 5%;
+		    border:medium solid black;
+		    font-size: 30px;
+		    -webkit-animation: fade 6s linear infinite; /*This code fades in the string, lets it stay for 3 seconds and then fades it out*/
+		}
+		/*Defining the animation 'fade'*/ 	
+		@keyframes fade 
+		{
+  		0%,100% { opacity: 0 }
+  		25%,75% { opacity: 1 }
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<span id="test">Starting...Created using...</span>
+
+
+	<script type="text/javascript">
+
+		x=document.getElementById("test");
+
+		var e=["HTML","CSS","JAVASCRIPT"]; //The array consisting of the strings to be printed
+		var i=0;
+
+		setInterval(function(){   //Function that changes innerHTML of test span every six seconds
+			x.innerHTML=e[i];
+			if(i==2)
+	 			i=0;
+	 		else
+	 			i++;
+	 	},6000);
+
+	</script>
+
+</body>
+
+</html>

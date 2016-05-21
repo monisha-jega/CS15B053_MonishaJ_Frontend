@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Shaastra 2016 | IITM </title>
+
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"> <!-- Including bootstrap -->
+
+	<style type="text/css">
+
+    	body
+        {
+            background-color: #D5E6F4;
+    	    font-family: MyraidPro;
+        }
+
+    	a
+    	{
+		text-decoration: none;
+    	}
+
+    	.well /*For the Shaastra schedule link*/
+        {
+            background-color: #173E43;
+        	padding:15px;
+        	text-align: center;
+        	width:240px ;
+        	height:88px;
+        	position:absolute;
+        	right:3%;
+        	color: white;
+        	top:42%;
+        }
+
+       	#info
+       	{	
+            position: absolute;
+        	top: 20%;
+        	left: 30%;
+        }
+
+        .hexanim /*To animate the two rotating hexagons*/
+        {	
+            position: absolute;
+        	top: 20%;
+        	left: 30%;
+        	animation: animhex 25s linear infinite;
+        	z-index: -10;
+         }
+
+        #hexf
+        {
+        	animation-direction: reverse;
+        }
+        /*Defining the animation of the hexagons*/
+        @keyframes animhex
+        {
+        	from{transform:rotate(0deg);}
+        	to{transform:rotate(360deg);}
+        	
+        }
+
+        .navbar.navbar-default.navbar-fixed-top li a
+        {
+            color: white;
+        }
+
+    	.navbar.navbar-default.navbar-fixed-top li a:hover,h4:hover /*To change color of menu links on hovering*/
+    	{
+            color: #e1e1e1;
+        }
+
+        .navbar li a:hover 
+        {
+            background: #305D68;
+        }
+
+        .navbar
+        {
+        	background-color:#173E43;    	
+    		height: 10%;
+    		font-size: 15px;
+            
+        }
+
+        #sidenav li a
+        {     
+            color: #fff;
+        }
+
+    	.navbar.navbar-default.navbar-fixed-top li a,h4
+    	{		
+            color: #fff;
+    	}
+
+        .bars /*The three bars used to open side navifgation bar*/
+        {
+        	position:absolute;
+        	z-index: 1000;
+            width: 25px;
+        	height: 3px;
+        	background-color: #fff;
+            cursor: pointer;
+        } 
+
+        #bar1
+        {
+            top: 25%;
+            left: 1%;
+        }
+        #bar1d
+        {
+            top: 31.5%;
+            background-color:#173E43;;
+            left: 1%;
+        }
+        #bar2
+        {
+            top: 38%;
+            left: 1%;
+        }
+        #bar2d
+        {
+            top: 44.5%;
+            background-color:#173E43;;
+            left: 1%;
+        }
+        #bar3
+        {
+            top: 51%;
+            left: 1%;
+        }
+
+        #omnbars
+        {
+            cursor: pointer;
+
+        }
+
+        .glyphicon /*Styling the close glyohicon*/
+        {
+            color: white;
+            position: absolute;
+            top: 10%;
+            left: 0%;
+            font-size: 30px;
+            cursor: pointer;
+            -webkit-transition:-webkit-transform .6s ease-in-out;
+
+        }
+
+        .glyphicon:hover /*To rotate the close glyphicon by 90 degrees on hovering over it*/
+        {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        .black
+        {
+        	color: black;
+        }
+
+        .black:hover
+        {
+        	color: #808080;
+        	text-decoration: none;
+        }
+        
+        
+        .initbox1
+        {
+            visibility: hidden;
+        }
+
+        .animbox1 /*Entrance animation (left to right) for the side navigation bar, called when the menu button is clicked*/
+        {
+            width:20%;
+            position: absolute;
+            height:100%;
+            left: 0%;
+            top: 10%;
+            background-color: #173E43;
+            visibility: visible;
+            -webkit-animation: fromleft 0.1s linear ;
+            animation: fromleft 0.1s linear;
+            transform-origin: 0% 0%;
+            -ms-transform-origin: 0% 0%;
+            -webkit-transform-origin: 0% 0%;
+        }
+        /*Defining entrance animation*/
+        @-webkit-keyframes fromleft 
+        {
+                0%
+                {
+                    transform:scaleX(0);
+                }
+                40%
+                {
+                    transform:scaleX(.98);
+                }
+                60%
+                {
+                    transform:scaleX(1.01);
+                }
+                100%
+                {
+                    transform:scaleX(0.98);
+                }
+                80%
+                {
+                    transform:scaleX(1.01);
+                }
+                100%
+                {
+                    transform:scaleX(1);
+                }
+
+        }
+        @keyframes fromleft
+         {
+                0%
+                {
+                    transform:scaleX(0.3);
+                }
+                40%
+                {
+                    transform:scaleX(.98);
+                }
+                60%
+                {
+                    transform:scaleX(1.01);
+                }
+                100%
+                {
+                    transform:scaleX(0.98);
+                }
+                80%
+                {
+                    transform:scaleX(1.01);
+                }
+                100%
+                {
+                    transform:scaleX(1);
+                }
+        }
+
+
+        #box2 /*Styling the semi-transparent container with the search box*/
+        {
+            width:80%;
+            position: absolute;
+            top: 0%;
+            left: 20%;
+            height:100%;
+            background-color: black;
+            opacity: 0.85;
+            visibility: hidden;
+            z-index: 500;
+        }   
+
+        #search
+        {
+            background-color: black;
+            color: white;
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            position: absolute;
+            width: 95%;
+            top:17%;
+            outline:0;
+            font-size: 25px;
+            left: 2%;
+        }
+
+
+
+
+
+	</style>
+
+</head>
+
+<body>
+
+    
+
+    <nav class="navbar navbar-default navbar-fixed-top"> <!-- The top fixed nav bar -->
+      <div class="container">
+        <div class="navbar-header">
+            <div onClick="show()" id="omnbars"> <span class="bars" id="bar1"></span><span class="bars" id="bar1d"></span> <span class="bars" id="bar2"></span><span class="bars" id="bar2d"></span> <span class="bars" id="bar3"></span>  </div>        
+        </div>
+        
+          <ul class="nav navbar-nav navbar-right"> <!-- Listing of top nav bar items -->
+            <li> <a href="#"> <strong> EVENTS </strong> </a> </li>
+            <li> <a href="#"> <strong> WORKSHOPS </strong> </a> </li>
+            <li> <a href="#"> <strong> SHOWS AND EXHIBITIONS </strong> </a> </li>
+            <li> <a href="#"> <strong> PRE-SHAASTRA ACTIVITIES </strong> </a> </li>
+            <li> <a href="#"> <strong> LECTURE SERIES </strong> </a> </li>
+            <li> <a href="#"> <strong> MAKER SUMMIT </strong> </a> </li>
+            <li> <a href="#"> <strong> PLEDGE-A-BOOK </strong> </a> </li>
+        </div>
+      
+    </nav>
+
+    <a href="#"> <div class="well"> <h4> <strong> Shaastra 2016 schedule is here </strong> </h4> </a> </div> </a> 
+
+    <div class="hexanim" id="hexh"><img src="hollowhex.png" class="img-responsive" ></div> <!-- The three hexagons -->
+    <div class="hexanim" id="hexf"><img src="filledhex.png" class="img-responsive" ></div>
+    <div id="info"><img src="infohex.png" class="img-responsive" alt="Shaastra Info"></div>
+
+    
+
+    <div class="container"> <!-- The container that appears on clicking the menu button -->
+        <div id="box1" class="initbox1">
+         <nav class="navbar" id="sidenav">
+            <ul style="font-size: 15px; color: white; padding-left:2%; font-family:"Proxima"; list-style-type: none;" class="nav nav-pills nav-stacked"> <!-- Vertical nav bar -->
+               <img src="dice.png" class="img-responsive" align="center" style="width: 130px;margin-left: 20%">
+               <li> <a href="#">HOME</li> </a>
+               <li><a href="#">PRE-SHAASTRA</li></a>
+               <li><a href="#">EVENTS</li></a>
+               <li><a href="#">WORKSHOP</li></a></a></a>
+               <li><a href="#">LECTURE SERIES</li></a></a>
+               <li><a href="#">SHOWS AND EXHIBITIONS</li></a>
+               <li><a href="#">SPONSORS</a></li>
+               <li><a href="#">PLEDGE-A-BOOK</a></li>
+               <li><a href="#">ABOUT US</a></li>
+               <li><a href="#">CONTACT US</a></li>
+            </ul>
+         </nav>
+        </div>
+        <div id="box2">
+            <span class="glyphicon glyphicon-remove" onClick="hide()"></span> <!-- Close button -->
+            <input type="text" id="search" placeholder="Search events and workshops..."> <!-- Search bar -->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        
+        function show() //Function to show the container on menu click
+        {
+            document.getElementById("box2").style.visibility="visible";
+            document.getElementById("box1").className="animbox1";
+
+        }
+
+        function hide() //Function to hide the container on pressing close button
+        {
+            document.getElementById("box1").className="initbox1";
+            document.getElementById("box2").style.visibility="hidden";
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title> FORM	</title>
+	
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"> <!-- Including bootstrap -->
+  
+  <script type="text/javascript" src="jquery-2.2.0.min.js"></script> <!-- Including jquery -->
+	
+  <style type="text/css">
+	
+  .container /*Style description of the container of the form*/
+		{
+		  width:55%;
+		  font-size: 25;
+		  align-content: right;
+		  margin:0%;
+    }
+  
+    .info
+    {
+      font-size: 15px;
+      
+    }
+  
+    body
+    {
+      background-color: #ADD8E6;
+    }
+	
+  	.form-group
+		{
+			padding: 3%;
+		}
+
+    .well /*Describes the style of the well that contains the post-submission message*/
+    {
+      visibility: hidden;
+      height:10%;
+      width:20%;
+      background-color: #3EA99F;
+      position: absolute;
+      left: 30%;
+      top: 90%;
+      text-align: center;
+      align-content: center;
+    } 
+
+    #sub
+    {
+      position: absolute;
+      left: 10%;
+    } 
+    .invalid /*To print error messages in red text*/
+    {
+      color: red;
+    }
+	
+  </style>
+	
+  </head>
+
+<body>
+
+<div class="container">
+
+  <h2>REGISTRATION - SHAASTRA 2017</h2>
+
+  <form  class="form-inline" name="testform"> <!-- Form -->
+
+  	<div class="form-group"> <!-- To input first name -->
+      	<label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFirst Name:</label> 
+      	<input type="text" class="form-control" name="fn" id="first" required="true"> <span class="invalid" id="firstname"></span>
+    </div>
+    <br>
+    <div class="form-group"> <!-- To input last name -->
+      	<label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLast Name:</label>
+      	<input type="text" class="form-control" name="ln" id="last" required="true"><span class="invalid" id="lastname"></span>
+    </div>
+    <br>
+    <div class="form-group"> <!-- To input email ID -->
+      	<label for="email">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEmail address:</label>
+      	<input type="email" class="form-control" name="email" id="email" required="true"><span class="invalid" id="emailerr"></span>
+    </div>
+    <br>
+    <div class="form-group"> <!-- To input mobile number -->
+      	<label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMobile:</label>
+      	<input type="text" class="form-control" name="mob" id="mob" required="true"><span class="invalid" id="mobile"></span>
+    </div>
+    <br>
+    <div class="form-group"> <!-- To input state -->
+        <label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspState:</label>
+        <select class="form-control"> <!-- Lists all the states in a dropdown box -->
+          <option> Andhra Pradesh </option>
+          <option> Arunachal Pradesh </option>
+          <option> Assam </option>
+          <option> Bihar </option>
+          <option> Chhattisgarh </option>
+          <option> Goa </option>
+          <option> Gujarat </option>
+          <option> Haryana </option>
+          <option> Himachal Pradesh </option>
+          <option> Jammu and Kashmir </option>
+          <option> Jharkhand </option>
+          <option> Karnataka </option>
+          <option> Kerala </option>
+          <option> Madhya Pradesh </option>
+          <option> Maharashtra </option>
+          <option> Manipur</option>
+          <option> Meghalaya </option>
+          <option> Mizoram </option>
+          <option> Nagaland </option>
+          <option> Orissa </option>
+          <option> Punjab </option>
+          <option> Rajasthan </option>
+          <option> Sikkhim </option>
+          <option> Tamil Nadu </option>
+          <option> Telengana </option>
+          <option> Tripura </option>
+          <option> Uttar Pradesh </option>
+          <option> Uttarkhand </option>
+          <option> West Bengal </option>
+        </select>
+    </div>
+    <br>
+    <div class="form-group"> <!-- To input password -->
+      	<label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPassword:</label>
+      	<input type="password" class="form-control" id="pass1" name="pass1" required="true"><span class="invalid" id="passtext"></span>
+    </div>
+    <br>
+    <div class="form-group"> <!-- To confirm password -->
+        <label>Confirm Password:</label>
+        <input type="password" class="form-control" id="pass2" name="pass2" required="true"><span class="invalid" id="conftext"></span>
+    </div>
+
+  </form>
+
+  <br>
+  <!-- Submit button that calls checkPass() function on clicking it -->
+  <button onClick="checkPass()" id="sub" class="btn btn-primary btn-lg" style="position: absolute;left: 15%;">Submit</button>
+
+  <br>
+  <!-- Message to be printed if all values are valid -->
+  <div id="submitted" class="well"> <h5> <strong> SUBMITTED SUCCESSFULLY </h5> </strong> </div> 
+
+</div>
+
+<script type="text/javascript">
+
+function checkPass() //Function to validate all the input fields
+{
+
+  var flag=1; //Initially assumed that all input fields have valid values
+  var mailexp=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; //Regular expression for validating e-mail
+
+  if(!document.testform.fn.value.match( /^[A-Za-z]+$/)) //Validation of first name using a regular expression
+  {
+    document.getElementById("firstname").innerHTML=" Invalid First Name"; 
+    document.getElementById("first").style.border="medium solid red";
+    document.testform.fn.focus();
+    flag=0;    
+  }
+  else
+  {
+    document.getElementById("firstname").innerHTML="";
+  }
+    
+  if(!document.testform.ln.value.match( /^[A-Za-z]+$/)) //Validation of last name using a regular expression
+  {
+   document.getElementById("lastname").innerHTML="  Invalid Last Name";
+   document.getElementById("last").style.border="medium solid red";
+   document.testform.ln.focus() ;
+   flag=0;   
+  }
+  else
+  {
+    document.getElementById("lastname").innerHTML="";
+  }
+
+  if(!document.testform.email.value.match(mailexp)) //Validation of email ID using the regular expression mailexp
+  {
+   document.getElementById("emailerr").innerHTML="  Invalid E-mail";
+   document.getElementById("email").style.border="medium solid red";
+   document.testform.email.focus();
+   flag=0;   
+  }
+  else
+  {
+    document.getElementById("emailerr").innerHTML="";
+  }
+
+  if(!(document.testform.mob.value.match( /^[0-9]+$/))||document.testform.mob.value.length!=10) //Validation of mobile number using a regular expression
+  {
+   document.getElementById("mobile").innerHTML="  Invalid Mobile Number";
+   document.getElementById("mob").style.border="medium solid red";
+   document.testform.mob.focus() ;
+   flag=0;   
+  }
+  else
+  {    
+    document.getElementById("mobile").innerHTML="";
+  }
+  
+  if(document.getElementById('pass1').value.length<6) //Validation of password
+  {
+   document.getElementById("passtext").innerHTML="  Password must have more than six characters";
+   document.getElementById("pass1").style.border="medium solid red";
+   document.testform.pass1.focus();
+   $('#pass1').val('');
+   $('#pass2').val('');
+   flag=0;   
+  }
+  else
+  {
+    document.getElementById("passtext").innerHTML="";
+  }
+
+  if(document.getElementById('pass1').value.length>=6 && document.getElementById('pass2').value!=document.getElementById('pass1').value) //Checking if the two passwords are matching
+  {
+    document.getElementById("conftext").innerHTML="  Passwords not matching";
+    document.getElementById("pass2").style.border="medium solid red";
+    document.testform.pass1.focus() ;
+    $('#pass1').val('');
+    $('#pass2').val('');
+    flag=0;    
+  } 
+  else
+  {
+   document.getElementById("conftext").innerHTML=""; 
+  }
+
+  if(flag==1) //To execute when all input fields are correctly filled by user 
+  { 
+    document.getElementById("submitted").style.visibility="visible";
+    document.getElementById("sub").disabled=true;
+    document.getElementById("first").style.border="none";
+    document.getElementById("email").style.border="none";
+    document.getElementById("mob").style.border="none";
+    document.getElementById("pass1").style.border="none";
+    document.getElementById("pass2").style.border="none";
+    document.getElementById("last").style.border="none";
+
+  }
+      
+}
+
+
+$(document).ready(function(){
+    $("input").focus(function(){
+        $(this).css("background-color", "#D3D3D3"); //To change color of input boxes when focused on
+    });
+    $("input").blur(function(){
+        $(this).css("background-color", "#ffffff"); //To change back to  default when focus is shifted
+    });
+});
+
+
+</script>
+
+</body>
+</html>

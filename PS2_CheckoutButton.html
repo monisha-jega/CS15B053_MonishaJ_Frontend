@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title> CHECKOUT BUTTON</title>
+
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"> <!-- Including bootstrap -->
+
+	<style type="text/css">
+
+		#button /*Styling the main button*/
+		{
+		    position: absolute;
+		    top: 20%;
+		    left:20%;
+
+		    background-color:#f5f5f5;
+
+		    -moz-border-radius:6px; 
+		    -webkit-border-radius:6px;
+			border-radius:10px;
+			border:1px solid #77767d;
+
+			display:inline-block;
+			color:#747475;
+			font-family:Arial;
+			font-size:15px;
+			font-weight:bold;
+			padding:6px 15px;
+			text-decoration:none;
+			text-shadow:0px 1px 0px #ced9bf;
+
+			-moz-box-shadow:inset 0px 0px 14px -3px #f2fadc;	   
+		    -webkit-box-shadow:inset 0px 0px 14px -3px #f2fadc;
+			box-shadow:inset 0px 0px 14px -3px #f2fadc;
+
+			/*Gradient of color inside the box*/
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f5f5f5), color-stop(1, #79797d));
+			background:-moz-linear-gradient(top, #f5f5f5 5%, #79797d 100%);
+			background:-webkit-linear-gradient(top, #f5f5f5 5%, #79797d 100%);
+			background:-o-linear-gradient(top, #f5f5f5 5%, #79797d 100%);
+			background:-ms-linear-gradient(top, #f5f5f5 5%, #79797d 100%);
+			background:linear-gradient(to bottom, #f5f5f5 5%, #79797d 100%);
+
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#79797d',GradientType=0);	
+
+			-ms-transform: scale(2,2); /* for IE 9 */
+	        -webkit-transform: scale(2,2); /* for Safari */
+	        transform: scale(2,2);
+	    }
+
+
+		.glyphicon-star /*Styling the star glyphicon*/
+		{
+			color:#666666;
+			
+		}
+
+		#outermost /*Outer border*/
+		{
+			position: absolute;
+			top: 18.7%;
+			left:19.4%;
+
+			width: 188px;
+			height:53px;
+
+			border:2px solid #696969;
+			border-radius: 12px;
+
+			-ms-transform: scale(2,2); /* IE 9 */
+	        -webkit-transform: scale(2,2); /* Safari */
+	        transform: scale(2,2);
+		}
+
+		#inner /*Inner shadow*/
+		{
+			background-color: #d3d3d3;
+			
+			position: absolute;
+			top: 19.3%;
+			left:19.7%;
+
+			width: 180px;
+			height:45px;
+
+			border-radius: 10px;
+
+			-ms-transform: scale(2,2); /* IE 9 */
+	        -webkit-transform: scale(2,2); /* Safari */
+	        transform: scale(2,2);
+
+		}
+
+
+	</style>
+
+</head>
+
+<body id="body">
+
+	<div id="outermost"></div>
+
+	<div id="inner"></div>
+
+	<button id="button"> <span class="glyphicon glyphicon-star"></span> &nbsp CHECKOUT &nbsp <span class="glyphicon glyphicon-star"></span> </button>
+
+</body>
+
+</html>
